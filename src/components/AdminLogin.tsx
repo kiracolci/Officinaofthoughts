@@ -16,7 +16,7 @@ export function AdminLogin({ onLogin, onNavigateBack }: AdminLoginProps) {
     setIsLoading(true);
 
     // Simple passcode check
-    if (passcode === "1234567!") {
+    if (passcode === "AnastasialaMaga2023") {
       toast.success("Login successful!");
       onLogin(true);
     } else {

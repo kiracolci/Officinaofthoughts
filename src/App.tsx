@@ -5,6 +5,8 @@ import { CaseDetail } from "./components/CaseDetail";
 import { ArticleDetail } from "./components/ArticleDetail";
 import { AdminDashboard } from "./components/AdminDashboard";
 import { AdminLogin } from "./components/AdminLogin";
+import { useEffect } from "react";
+
 
 import "./App.css";
 
@@ -20,6 +22,35 @@ export default function App() {
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
 
+  useEffect(() => {
+    const pressed = new Set<string>();
+  
+    const downHandler = (e: KeyboardEvent) => {
+      pressed.add(e.key.toLowerCase());
+  
+      const hasShift = e.shiftKey;
+      const hasT = pressed.has("t");
+      const hasS = pressed.has("s");
+      const hasL = pressed.has("l");
+  
+      if (hasShift && hasT && hasS && hasL) {
+        navigateToAdminLogin();
+      }
+    };
+  
+    const upHandler = (e: KeyboardEvent) => {
+      pressed.delete(e.key.toLowerCase());
+    };
+  
+    window.addEventListener("keydown", downHandler);
+    window.addEventListener("keyup", upHandler);
+  
+    return () => {
+      window.removeEventListener("keydown", downHandler);
+      window.removeEventListener("keyup", upHandler);
+    };
+  }, []);
+  
   /* ---------------- NAVIGATION ---------------- */
 
   const navigateToHome = () => setCurrentPage({ type: "home" });
@@ -61,31 +92,23 @@ export default function App() {
               <button className="nav-button" onClick={() => setShowAbout(true)}>
                 About Me
               </button>
+              {isAdminAuthenticated && (
+  <>
+    <button
+      onClick={navigateToAdminDashboard}
+      className="nav-button"
+    >
+      Dashboard
+    </button>
+    <button
+      onClick={handleAdminLogout}
+      className="nav-button nav-logout"
+    >
+      Logout
+    </button>
+  </>
+)}
 
-              <button onClick={navigateToHome} className="nav-button">
-                Home
-              </button>
-
-              {isAdminAuthenticated ? (
-                <>
-                  <button
-                    onClick={navigateToAdminDashboard}
-                    className="nav-button"
-                  >
-                    Dashboard
-                  </button>
-                  <button
-                    onClick={handleAdminLogout}
-                    className="nav-button nav-logout"
-                  >
-                    Logout
-                  </button>
-                </>
-              ) : (
-                <button onClick={navigateToAdminLogin} className="nav-button">
-                  Admin
-                </button>
-              )}
             </nav>
           </div>
         </div>
