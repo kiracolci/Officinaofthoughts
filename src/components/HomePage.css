@@ -1,0 +1,243 @@
+/* MAIN PAGE LAYOUT */
+.homepage {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: #171a22;
+}
+
+/* HERO SECTION */
+.hero-section {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.hero-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #e3ebff;
+  margin-bottom: 1rem;
+}
+
+.title-officina {
+  color: #ffb62e;
+}
+
+.title-thoughts {
+  color: #fff3ec;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  color: #475569;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+/* SEARCH BAR & FILTER TOGGLE */
+.search-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.2rem;
+}
+
+.filter-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f131a;
+  border: 1px solid #2a2d33;
+  padding: 17px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.filter-toggle-btn:hover {
+  background: #f4ad32;
+  border-color: #f4ad32;
+}
+
+.filter-button {
+  background: #1f242e;       /* dark button */
+  border: 1px solid #2f3540; 
+  width: 53px;
+  height: 53px;
+  border-radius: 10px;       /* same rounded look */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-button:hover {
+  background: #2a303b;
+  border-color: #3a414d;
+}
+
+.filter-icon {
+  width: 24px;               /* PERFECT icon size */
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* make it white like before */
+}
+
+
+
+/* SEARCH INPUT */
+.search-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 18px 14px 48px;
+  border-radius: 10px;
+  background: #0f131a;
+  border: 1px solid #262b33;
+  font-size: 0.95rem;
+  color: #d1d5db;
+  transition: all 0.25s ease;
+}
+
+.search-input::placeholder {
+  color: #6c7280;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #f4ad32;
+  box-shadow: 0 0 6px rgba(244, 173, 50, 0.4);
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  opacity: 0.7;
+}
+
+/* TABS */
+.tabs-container {
+  border-bottom: 1px solid #2b3038;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 3rem; /* a bit more elegant spacing */
+  margin-bottom: -1px;
+}
+
+/* TAB BUTTONS */
+.tab-button {
+  padding: 0.6rem 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+
+  color: #8a93a5; /* softer warm grey (instead of cold blue-grey) */
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Hover state */
+.tab-button:hover {
+  color: #f4ad32; /* your brand orange */
+  border-bottom-color: rgba(244, 173, 50, 0.35); /* soft underline */
+}
+
+.tab-active {
+  border-bottom-color: #ffcc80 !important; /* softer warm orange */
+  color: #ffcc80 !important;
+  font-weight: 600;
+}
+
+/* SORT */
+.sort-container {
+  margin-top: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.sort-select {
+  background: #1c1f25;
+  color: #e5e7eb;
+  border: 1px solid #2a2e36;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  min-width: 180px;
+  outline: none;
+  margin-top: 20px;
+}
+
+.sort-select:hover {
+  border-color: #f4ad32;
+}
+
+.sort-select:focus {
+  border-color: #f4ad32;
+  box-shadow: 0 0 0 2px rgba(244, 173, 50, 0.3);
+}
+
+/* CASE GRID */
+.casecard-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 0;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .casecard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* LOADING */
+.loading-container {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.loading-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #ffa024;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* EMPTY STATE */
+.empty-state {
+  text-align: center;
+  padding: 2rem 0;
+  color: #64748b;
+}
+
+.tabs-nav .tab-button.tab-active {
+  border-bottom-color: #ffc25a !important; 
+  color: #ffcc33 !important;
+}

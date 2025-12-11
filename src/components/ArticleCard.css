@@ -1,0 +1,130 @@
+/* ARTICLE CARD — styled like CaseCard but softer */
+
+.articlecard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #232731;
+  border: 1px solid #2b2f37;
+  border-radius: 14px;
+  padding: 22px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  height: 260px;
+  overflow: hidden;
+}
+
+/* LEFT ORANGE ACCENT */
+.articlecard-highlight {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: #f4a32d; /* Orange */
+  opacity: 0.7;
+  border-radius: 14px 0 0 14px;
+  transition: 0.25s ease;
+}
+
+
+.articlecard:hover .articlecard-highlight {
+  opacity: 1;
+  width: 6px;
+}
+
+/* TITLE */
+.articlecard-title {
+  font-size: 20px;
+  color: #f0f0f0;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* EXCERPT — expands on hover */
+.articlecard-excerpt {
+  color: #f7e9d2;
+  font-size: 15px;
+  line-height: 1.45;
+  max-height: 70px;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.25s ease;
+}
+
+.articlecard:hover .articlecard-excerpt {
+  max-height: 200px;
+}
+
+/* KEYWORDS */
+.articlecard-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.articlecard-tag {
+  background: #2b2f37;
+  color: #e5e5e5;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* FOOTER */
+.articlecard-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #2b2f37;
+  padding-top: 14px;
+}
+
+.articlecard-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #b9bcc2;
+  font-size: 14px;
+}
+
+.articlecard-date-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+/* READ MORE LINK */
+.articlecard-more {
+  color: #f4a32d; /* ORANGE! */
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.articlecard-more:hover {
+  opacity: 0.7;
+  transform: translateX(3px);
+}
+
+.articlecard-author {
+  font-size: 14px;
+  color: #f4a32d; /* orange highlight */
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+/* DATE ROW (published + edited next to each other) */
+.articlecard-date-row {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* space between published and edited */
+}
+
+/* Edited date */
+.edited-date {
+  color: #b9bcc2;
+  font-size: 14px;
+  opacity: 0.9;
+}

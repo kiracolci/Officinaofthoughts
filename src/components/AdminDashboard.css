@@ -1,0 +1,68 @@
+.admin-dashboard {
+  /* Main container styles handled by parent */
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #eef3ff;
+  margin: 0;
+}
+
+.back-to-site-button {
+  color: #fffbf8;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.back-to-site-button:hover {
+  color: #ffc96d;
+}
+
+.dashboard-tabs {
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+}
+
+.tabs-navigation {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: -1px;
+}
+
+.tab-button {
+  padding: 0.5rem 0.25rem;
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #64748b;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-button:hover {
+  color: #334155;
+  border-bottom-color: #cbd5e1;
+}
+
+.tab-active {
+  border-bottom-color: #ffb641 !important;
+  color: #ffb641 !important;
+}
+
+.dashboard-content {
+  /* Content styles handled by child components */
+}

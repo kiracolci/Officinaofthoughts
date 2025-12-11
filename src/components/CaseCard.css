@@ -1,0 +1,192 @@
+/* -------------------------------------- */
+/*  CASE CARD CONTAINER                   */
+/* -------------------------------------- */
+.casecard {
+  display: flex;
+  flex-direction: column;
+  background: #232731;
+  border-radius: 12px;
+  padding: 20px;
+  gap: 12px;
+  position: relative;
+}
+
+
+/* -------------------------------------- */
+/*  LEFT GOLD HIGHLIGHT BAR               */
+/* -------------------------------------- */
+.casecard-highlight {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: #f4a32d;
+  border-radius: 14px 0 0 14px;
+  opacity: 0.6;
+  transition: 0.25s ease;
+}
+
+.casecard:hover .casecard-highlight {
+  width: 6px;
+  opacity: 1;
+}
+
+
+/* -------------------------------------- */
+/*  CONTENT                               */
+/* -------------------------------------- */
+.casecard-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+
+.casecard-meta {
+  min-height: 60px; /* adjust higher/lower if needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
+
+/* -------------------------------------- */
+/*  TITLE                                 */
+/* -------------------------------------- */
+.casecard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.casecard-title {
+  font-size: 20px;
+  color: #f0f0f0;
+  font-weight: 600;
+}
+
+
+/* -------------------------------------- */
+/*  EXTERNAL LINK ICON                    */
+/* -------------------------------------- */
+.casecard-extlink img {
+  width: 15px;
+  transition: 0.2s ease;
+}
+
+.casecard-extlink:hover img {
+  opacity: 0.5;
+}
+
+
+/* -------------------------------------- */
+/*  BADGES                                */
+/* -------------------------------------- */
+.casecard-badges {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.badge-year {
+  background: #f4a32d;
+  color: #111;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge-keyword {
+  background: #2b2f37;
+  color: #d0d0d0;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+
+/* -------------------------------------- */
+/*  META INFO                             */
+/* -------------------------------------- */
+.casecard-meta p {
+  margin: 4px 0;
+  color: #d0d0d0;
+  font-size: 14px;
+}
+
+
+/* -------------------------------------- */
+/*  FOOTER                                */
+/* -------------------------------------- */
+.casecard-footer {
+  margin-top: auto;   /* pushes footer to bottom */
+  padding-top: 14px;
+  border-top: 1px solid #2b2f37;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.date-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  white-space: nowrap;
+}
+
+.casecard-date {
+  display: flex;
+  font-size: small;
+  color: #b6b6b6;
+  align-items: center;
+  gap: 6px;
+  width: auto !important;
+}
+
+
+/* -------------------------------------- */
+/*  FOOTER RIGHT SIDE                     */
+/* -------------------------------------- */
+.casecard-more {
+  color: #f4a32d;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.casecard-more:hover {
+  opacity: 0.7;
+}
+
+
+/* -------------------------------------- */
+/*  DATE ICON                             */
+/* -------------------------------------- */
+.date-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.85;
+  object-fit: contain;
+  transition: 0.2s ease;
+}
+
+
+/* -------------------------------------- */
+/*  GRID (OUTSIDE CARD)                   */
+/* -------------------------------------- */
+.casecard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .casecard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

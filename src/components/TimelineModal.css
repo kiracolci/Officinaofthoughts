@@ -1,0 +1,327 @@
+/* -------------------------------------- */
+/* OVERLAY                                */
+/* -------------------------------------- */
+.timeline-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  /* -------------------------------------- */
+  /* VIEW MODE BOX                          */
+  /* -------------------------------------- */
+  .timeline-view-box {
+    background: #f1f1f1;
+    width: 90%;
+    max-width: 880px;
+    padding: 40px;
+    border-radius: 28px;
+    position: relative;
+  }
+  
+  .timeline-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #171a22 !important;
+    margin-bottom: 25px;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 18px;
+    right: 25px;
+    background: none;
+    border: none;
+    color: #171a22;
+    font-size: 32px;
+    cursor: pointer;
+  }
+  .close-btn:hover {
+    opacity: 0.6;
+  }
+  
+  /* -------------------------------------- */
+  /* TIMELINE SCROLL WRAPPER                */
+  /* -------------------------------------- */
+  .timeline-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 12px;
+  }
+  
+  .timeline-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+  .timeline-scroll::-webkit-scrollbar-thumb {
+    background: #ffb331;
+    border-radius: 4px;
+  }
+  
+  /* -------------------------------------- */
+  /* TIMELINE STRUCTURE                     */
+  /* -------------------------------------- */
+  .timeline-horizontal {
+    position: relative;
+    display: flex;
+    gap: 120px;
+    min-width: max-content;
+    padding: 0 20px;
+    height: auto;
+    align-items: flex-start;
+    padding-bottom: 40px;
+  }
+  
+  /* -------------------------------------- */
+  /* CENTRAL LINE WITH ANIMATION            */
+  /* -------------------------------------- */
+  .timeline-line {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    height: 3px;
+    background: #ffb331;
+    width: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+    animation: drawLine 1.2s ease-out forwards;
+  }
+  
+  @keyframes drawLine {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  /* -------------------------------------- */
+  /* TIMELINE POINT                         */
+  /* -------------------------------------- */
+  .timeline-point {
+    position: relative;
+    width: 260px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  
+  /* DOT */
+  .timeline-point .dot {
+    width: 14px;
+    height: 14px;
+    background: #ffb331;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(12%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+  }
+  
+  /* DATE ABOVE TITLE */
+  .tl-date {
+    margin-top: 30px;
+    font-weight: 700;
+    color: #ffb331;
+    white-space: nowrap;
+  }
+  
+  /* EVENT CONTENT */
+  .event-box {
+    margin-top: 4px;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .tl-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #171a22;
+  }
+  
+  .tl-desc {
+    font-size: 14px;
+    line-height: 1.35;
+    color: #171a22;
+    white-space: normal;
+  }
+
+
+  /* clickable link color inside timeline desc */
+  .tl-desc a {
+    color: #000000;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  
+  /* -------------------------------------- */
+  /* EDIT MODE (ADMIN)                      */
+  /* -------------------------------------- */
+  .timeline-edit-box {
+    background: #1b1f28;
+    width: 900px;
+    max-height: 90vh;
+    padding: 40px;
+    border-radius: 12px;
+    position: relative;
+    overflow-y: auto;
+  }
+  
+  .edit-event-box {
+    background: #313746;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  
+  .edit-input,
+  .edit-textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 14px;
+    border: 2px solid #313746;
+    background: #fff;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .edit-textarea {
+    height: 90px;
+  }
+  
+  .delete-event {
+    background: none;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+  }
+  .delete-event:hover {
+    color: #ffb331;
+  }
+  
+  .add-event {
+    margin-top: 10px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .edit-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .save-btn,
+  .cancel-btn {
+    background: #ffb331;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  /* -------------------------------------- */
+  /* LINK MODAL (Same style as CaseForm)    */
+  /* -------------------------------------- */
+  .link-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .link-modal-box {
+    background: #ffffff;
+    padding: 26px;
+    width: 360px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  
+  .link-modal-box h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  
+  .link-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    margin-bottom: 18px;
+  }
+  
+  .link-modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .insert-btn {
+    background: #171a22;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .cancel-btn {
+    background: #e4e4e4;
+    padding: 8px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .timeline-direction {
+    text-align: left;
+    font-size: 14px;
+    margin-top: -30px;
+    margin-left: 5px;
+    margin-bottom: 25px;
+    color: #383838;
+    font-weight: 600;
+    opacity: 0.9;
+  }
+  
+  .edit-controls-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .save-single-event {
+    background: #ffb331;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    color: #171a22;
+    font-weight: 600;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .save-single-event:hover {
+    opacity: 0.8;
+  }
+  
