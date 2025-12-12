@@ -162,7 +162,7 @@ export function HomePage({
         {activeTab === "articles" &&
           (displayArticles ? (
             displayArticles.length === 0 ? (
-              <div className="empty-state">No articles found.</div>
+              <div className="empty-state">No thoughts found.</div>
             ) : (
               displayArticles.map((a) => (
                 <ArticleCard key={a._id} article={a} onClick={() => onNavigateToArticle(a._id)} />
