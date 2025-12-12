@@ -67,17 +67,12 @@ export function CaseCard({ case: case_, onClick }: CaseCardProps) {
 <div className="date-row">
   <div className="casecard-date">
     <img src="/6.png" alt="calendar icon" className="date-icon" />
-    {new Date(case_.publishedAt).toLocaleDateString()}
+    {new Date(case_._creationTime).toLocaleDateString()}
   </div>
-
-  {case_.updatedAt && (
-    <div className="casecard-date">
-      Last edited: {new Date(case_.updatedAt).toLocaleDateString()}
-    </div>
-  )}
 </div>
 
-<div className="casecard-more">Read more →</div>
+
+<div className="casecard-more">Read case →</div>
 </div>
 
 

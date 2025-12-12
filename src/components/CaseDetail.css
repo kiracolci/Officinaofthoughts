@@ -5,12 +5,12 @@
 .case-detail-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px 3px;
 }
 
 /* Back Button */
 .back-button {
-  color: #dfe3ee;
+  color: #dfe3ee !important;
   border: none;
   font-size: 15px;
   cursor: pointer;
@@ -23,7 +23,7 @@
 /* Article wrapper */
 .case-article {
   background: #171a22;
-  padding: 2rem;
+  padding: 2rem -1rem;
 }
 
 /* ----------------------------------------------------------- */
@@ -268,3 +268,4 @@
   font-size: 0.85rem;
   letter-spacing: 0.5px;
 }
+

@@ -24,13 +24,17 @@ export function ArticleDetail({
   onNavigateBack,
   onNavigateToCase,
 }: ArticleDetailProps) {
-  const article = useQuery(api.articles.getById, {
-    id: articleId as Id<"articles">
-  }) as Article | null | undefined;
+  const articles = useQuery(api.articles.list, {}) as
+  | (Article & { _id: Id<"articles"> })[]
+  | undefined;
+
+const article =
+  articles?.find((a) => a._id === articleId) ?? null;
+
   
 
   // LOADING
-  if (article === undefined) {
+  if (articles === undefined) {
     return (
       <div className="article-loading-screen">
         <div className="lds-dual-ring"></div>
