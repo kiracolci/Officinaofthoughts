@@ -100,9 +100,9 @@ export const create = mutation({
     court: v.optional(v.string()),
     conclusionDate: v.optional(v.string()),
     originalLink: v.optional(v.string()),
-    summary: v.string(),
-    comments: v.string(),
-
+    summary: v.optional(v.string()),
+    comments: v.optional(v.string()),
+    
     keywords: v.array(v.string()),
 
     relatedCases: v.array(
@@ -126,13 +126,24 @@ export const create = mutation({
     const now = Date.now();
 
     return await ctx.db.insert("cases", {
-      ...args,
+      title: args.title,
+      caseNumber: args.caseNumber,
+      court: args.court,
+      conclusionDate: args.conclusionDate,
+      originalLink: args.originalLink,
+    
+      summary: args.summary ?? "",
+      comments: args.comments ?? "",
+    
+      keywords: args.keywords,
+      relatedCases: args.relatedCases,
+      timeline: args.timeline,
+    
       publishedAt: now,
       createdAt: now,
       updatedAt: now,
     });
-  },
-});
+    
 
 /* ------------------------ UPDATE CASE ------------------------ */
 
@@ -145,8 +156,9 @@ export const update = mutation({
     court: v.optional(v.string()),
     conclusionDate: v.optional(v.string()),
     originalLink: v.optional(v.string()),
-    summary: v.string(),
-    comments: v.string(),
+    summary: v.optional(v.string()),
+comments: v.optional(v.string()),
+
 
     keywords: v.array(v.string()),
 

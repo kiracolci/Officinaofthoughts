@@ -127,22 +127,27 @@ if (initialData && initialData.conclusionDate && !formData.conclusionDate) {
         title: formData.title,
         caseNumber: formData.caseNumber || undefined,
         court: formData.court || undefined,
-        conclusionDate: formData.conclusionDate  || undefined,
+        conclusionDate: formData.conclusionDate || undefined,
         originalLink: formData.originalLink || undefined,
-        summary: formData.summary,
-        comments: formData.comments,
+      
+        summary: formData.summary.trim() || undefined,
+        comments: formData.comments.trim() || undefined,
+      
         keywords: formData.keywords
           .split(",")
           .map((k) => k.trim())
           .filter((k) => k.length > 0),
+      
         relatedCases: formData.relatedCases
           .filter((c) => c.name.trim().length > 0)
           .map((c) => ({
             name: c.name.trim(),
             link: c.link?.trim() || undefined,
           })),
+      
         timeline: initialData?.timeline || [],
       };
+  
 
       if (initialData?.id) {
         await updateCase({ id: initialData.id as any, ...caseData });
@@ -303,22 +308,22 @@ if (initialData && initialData.conclusionDate && !formData.conclusionDate) {
 
         {/* SUMMARY */}
         <div className="form-field">
-          <label className="form-label">Summary *</label>
+          <label className="form-label">Summary</label>
           <textarea
-            value={formData.summary}
-            onChange={(e) =>
-              setFormData({ ...formData, summary: e.target.value })
-            }
-            onContextMenu={(e) => handleContextMenu(e, "summary")}
-            rows={6}
-            className="form-textarea"
-            required
-          />
+  value={formData.summary}
+  onChange={(e) =>
+    setFormData({ ...formData, summary: e.target.value })
+  }
+  onContextMenu={(e) => handleContextMenu(e, "summary")}
+  rows={6}
+  className="form-textarea"
+/>
+
         </div>
 
         {/* COMMENTS */}
         <div className="form-field">
-          <label className="form-label">Comments & Analysis *</label>
+          <label className="form-label">Comments & Analysis</label>
           <textarea
             value={formData.comments}
             onChange={(e) =>
