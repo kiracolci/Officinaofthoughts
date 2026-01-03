@@ -108,8 +108,8 @@ export function CaseDetail({
 
   {case_.court && (
   <div className="case-meta-line">
-    <span style={{ color: "#9ca3af" }}>Court:</span>{" "}
-    <span>{case_.court}</span>
+    <span>Court:</span>
+    <span className="case-court-badge">{case_.court}</span>
   </div>
 )}
 

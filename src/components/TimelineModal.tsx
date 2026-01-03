@@ -90,12 +90,12 @@ export function TimelineModal({ editing = false, case_, timeline, onClose }: Pro
   };
 
   const addEvent = () => {
-    setEvents([
-      { date: "", title: "", description: "" }, // new event goes FIRST
-      ...events
-    ]);
-  };
-  
+  setEvents([
+    { date: "", title: "", description: "" }, // new event goes FIRST
+    ...events
+  ]);
+};
+
 
   const deleteEvent = (realIndex: number) => {
     setEvents(events.filter((_, i) => i !== realIndex));

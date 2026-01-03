@@ -144,6 +144,8 @@ export const create = mutation({
       updatedAt: now,
     });
     
+  },
+});
 
 /* ------------------------ UPDATE CASE ------------------------ */
 
