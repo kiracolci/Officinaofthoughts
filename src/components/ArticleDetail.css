@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 40px 20px;
   background: #171a22;
-  color: #e6edf3;
+  color: #fffef0;
   min-height: 100vh;
 }
 
@@ -24,6 +24,7 @@
 }
 
 .article-subtitle {
+  color: #171a22;
   font-size: 1.2rem;
   opacity: 0.8;
   margin-bottom: 30px;
@@ -44,7 +45,7 @@
 
 .section-text {
   font-size: 1.05rem;
-  color: #dfe3ee;
+  color: #fffef0;
   line-height: 1.7;
   white-space: pre-wrap;
 }
@@ -78,10 +79,12 @@
 }
 
 .related-item {
-  background: #1f2430;
+  color:#fffef0;
+  position: relative;
+  background: #171a22;
   padding: 12px 16px;
-  border-radius: 8px;
-  border: 1px solid #2d3440;
+  padding-right: 40px; /* space for icon */
+  border: 1px solid #171a22;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -89,9 +92,56 @@
 
 .related-name {
   font-weight: 500;
+  color:#fffef0;
 }
 
+/* ICON CONTAINER */
+.related-link {
+  position: absolute;
+  right: -30px; /* pushes icon OUTSIDE box */
+  top: 0;
+}
+
+/* ICON IMAGE */
 .related-link img {
-  width: 20px;
-  height: 20px;
+  margin-right: 10px;
+  margin-top: 20px;
+  width: 18px;
+  height: auto;
+  object-fit: contain;
+}
+
+.article-date {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+/* MAIN ARTICLE CONTENT */
+.section-text h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.section-text h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.section-text h3 {
+  font-size: 0.8rem;
+}
+
+
+/* Superscript */
+.section-text sup {
+  font-size: 0.7rem;
+}
+
+.section-text p {
+  margin-bottom: 1rem;
+  text-align: justify;
+  line-height: 1.8;
 }

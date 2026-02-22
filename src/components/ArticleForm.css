@@ -236,3 +236,67 @@ label {
     width: 100%;
   }
 }
+/* MAIN EDITOR CONTAINER */
+.editor-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #3a3f4b;
+  display: flex;
+  flex-direction: column;
+  height: 450px; /* This makes it Word-like */
+}
+
+/* TOOLBAR */
+.editor-toolbar {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background: #3a3f4b;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+/* SCROLLABLE CONTENT AREA */
+.editor-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* ACTUAL TEXT AREA */
+.ProseMirror h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.ProseMirror h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.ProseMirror h3 {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* BUTTON STYLE */
+.editor-toolbar button {
+  border: 1px solid #ccc;
+  background: #3a3f4b;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.editor-toolbar button:hover {
+  background: #3a3f4b;
+}
+
+/* DROPDOWN STYLE */
+.editor-toolbar select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

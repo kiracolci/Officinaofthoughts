@@ -13,7 +13,7 @@ const applicationTables = {
     conclusionDate: v.optional(v.string()),
     originalLink: v.optional(v.string()),
     summary: v.string(),
-    comments: v.optional(v.string()),
+comments: v.optional(v.string()),
     keywords: v.array(v.string()),
 
     relatedCases: v.array(

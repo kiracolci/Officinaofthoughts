@@ -15,6 +15,7 @@ interface Article {
   excerpt: string;
   intro: string;
   content: string;
+  publishedAt?: string;   // 👈 ADD THIS
   keywords: string[];
   relatedCases?: { name: string; link?: string }[];
 }
@@ -82,11 +83,23 @@ const article =
       <article className="article-card">
         {/* TITLE */}
         <h1 className="article-title-display">{article.title}</h1>
-        <p className="article-subtitle">{article.excerpt}</p>
+
+{article.publishedAt && (
+  <p className="article-date">
+    Published on{" "}
+    {new Date(article.publishedAt).toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    })}
+  </p>
+)}
+
+<p className="article-subtitle">{article.excerpt}</p>
 
         {/* INTRO */}
         <section id="intro" className="article-section">
-          <h2 className="section-title">Introduction</h2>
+          <h2 className="section-title">Summary</h2>
           <div
             className="section-text"
             onClick={handleContentClick}
@@ -121,7 +134,7 @@ const article =
         {/* RELATED CASES */}
         {relatedCases.length > 0 && (
           <section id="related" className="article-section">
-            <h2 className="section-title">Related Cases</h2>
+            <h2 className="section-title">Bibliography</h2>
 
             <div className="related-box">
               {relatedCases.map((rc, i) => (

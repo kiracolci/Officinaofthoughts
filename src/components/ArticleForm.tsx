@@ -3,6 +3,10 @@ import { useMutation } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { toast } from "sonner";
 import "./ArticleForm.css";
+import { useEditor, EditorContent } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import Superscript from "@tiptap/extension-superscript";
+import { TextStyle } from "@tiptap/extension-text-style";
 
 interface RelatedCase {
   name: string;
@@ -42,6 +46,36 @@ export function ArticleForm({ onSuccess, initialData }: ArticleFormProps) {
   const [linkURL, setLinkURL] = useState("");
   const [targetField, setTargetField] = useState<"intro" | "content" | null>(null);
   const [highlight, setHighlight] = useState({ start: 0, end: 0, text: "" });
+
+  const editor = useEditor({
+    extensions: [
+      StarterKit,
+      Superscript,
+      TextStyle,
+    ],
+    content: formData.content || "",
+    onUpdate: ({ editor }) => {
+      setFormData({
+        ...formData,
+        content: editor.getHTML(),
+      });
+    },
+  });
+
+  const introEditor = useEditor({
+    extensions: [
+      StarterKit,
+      Superscript,
+      TextStyle,
+    ],
+    content: formData.intro || "",
+    onUpdate: ({ editor }) => {
+      setFormData({
+        ...formData,
+        intro: editor.getHTML(),
+      });
+    },
+  });
 
   const openLinkModal = (
     e: React.MouseEvent<HTMLTextAreaElement>,
@@ -194,31 +228,122 @@ const handleSubmit = async (e: React.FormEvent) => {
 
         <div className="form-field">
           <label>Introduction *</label>
-          <textarea
-            className="form-textarea"
-            rows={5}
-            value={formData.intro}
-            onChange={(e) =>
-              setFormData({ ...formData, intro: e.target.value })
-            }
-            onContextMenu={(e) => openLinkModal(e, "intro")}
-            required
-          />
+          <div className="editor-wrapper">
+
+  <div className="editor-toolbar">
+
+    <select
+      onChange={(e) => {
+        const value = e.target.value;
+
+        if (value === "paragraph") {
+          introEditor?.chain().focus().setParagraph().run();
+        } else {
+          const level = Number(value) as 1 | 2 | 3 | 4 | 5 | 6;
+          introEditor?.chain().focus().toggleHeading({ level }).run();
+        }
+      }}
+      defaultValue="paragraph"
+    >
+      <option value="paragraph">Paragraph</option>
+      <option value="1">Heading 1</option>
+      <option value="2">Heading 2</option>
+      <option value="3">Heading 3</option>
+    </select>
+
+    <button
+      type="button"
+      onClick={() => introEditor?.chain().focus().toggleBold().run()}
+    >
+      B
+    </button>
+
+    <button
+      type="button"
+      onClick={() => introEditor?.chain().focus().toggleItalic().run()}
+    >
+      I
+    </button>
+
+    <button
+      type="button"
+      onClick={() => introEditor?.chain().focus().toggleSuperscript().run()}
+    >
+      Sup
+    </button>
+
+  </div>
+
+  <div className="editor-scroll-area">
+    <EditorContent editor={introEditor} />
+  </div>
+
+</div>
         </div>
 
         <div className="form-field">
-          <label>Main Content *</label>
-          <textarea
-            className="form-textarea"
-            rows={10}
-            value={formData.content}
-            onChange={(e) =>
-              setFormData({ ...formData, content: e.target.value })
-            }
-            onContextMenu={(e) => openLinkModal(e, "content")}
-            required
-          />
-        </div>
+  <label>Main Content *</label>
+  <div className="editor-wrapper">
+
+<div className="editor-toolbar">
+
+  {/* DROPDOWN */}
+  <select
+  onChange={(e) => {
+    const value = e.target.value;
+
+    if (value === "paragraph") {
+      editor?.chain().focus().setParagraph().run();
+    } else {
+      const level = Number(value) as 1 | 2 | 3 | 4 | 5 | 6;
+      editor?.chain().focus().toggleHeading({ level }).run();
+    }
+  }}
+  defaultValue="paragraph"
+>
+  <option value="paragraph">Paragraph</option>
+  <option value="1">Heading 1</option>
+  <option value="2">Heading 2</option>
+  <option value="3">Heading 3</option>
+</select>
+
+  {/* BOLD */}
+  <button
+    type="button"
+    onClick={() => editor?.chain().focus().toggleBold().run()}
+  >
+    B
+  </button>
+
+  {/* ITALIC */}
+  <button
+    type="button"
+    onClick={() => editor?.chain().focus().toggleItalic().run()}
+  >
+    I
+  </button>
+
+  {/* SUPERSCRIPT */}
+  <button
+    type="button"
+    onClick={() => editor?.chain().focus().toggleSuperscript().run()}
+  >
+    Sup
+  </button>
+
+</div>
+
+<div className="editor-scroll-area">
+  <EditorContent editor={editor} />
+</div>
+
+</div>
+ 
+
+   
+
+  
+</div>
 
         <div className="form-field">
           <label>Keywords (comma-separated)</label>
