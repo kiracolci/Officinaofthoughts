@@ -227,7 +227,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
 
         <div className="form-field">
-          <label>Introduction *</label>
+          <label>Summary *</label>
           <div className="editor-wrapper">
 
   <div className="editor-toolbar">
@@ -302,9 +302,9 @@ const handleSubmit = async (e: React.FormEvent) => {
   defaultValue="paragraph"
 >
   <option value="paragraph">Paragraph</option>
-  <option value="1">Heading 1</option>
-  <option value="2">Heading 2</option>
-  <option value="3">Heading 3</option>
+  <option value="1">List</option>
+  <option value="2">Orange title</option>
+  <option value="3">Footnoots</option>
 </select>
 
   {/* BOLD */}

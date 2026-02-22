@@ -96,6 +96,20 @@ const article =
 )}
 
 <p className="article-subtitle">{article.excerpt}</p>
+{/* KEYWORDS */}
+{article.keywords.length > 0 && (
+          <section id="keywords" className="article-section">
+            <h2 className="section-title">Keywords</h2>
+            <div className="keywords-container">
+              {article.keywords.map((kw, i) => (
+                <span className="keyword-tag" key={i}>
+                  {kw}
+                </span>
+              ))}
+            </div>
+          </section>
+        )}
+
 
         {/* INTRO */}
         <section id="intro" className="article-section">
@@ -117,20 +131,7 @@ const article =
           />
         </section>
 
-        {/* KEYWORDS */}
-        {article.keywords.length > 0 && (
-          <section id="keywords" className="article-section">
-            <h2 className="section-title">Keywords</h2>
-            <div className="keywords-container">
-              {article.keywords.map((kw, i) => (
-                <span className="keyword-tag" key={i}>
-                  {kw}
-                </span>
-              ))}
-            </div>
-          </section>
-        )}
-
+  
         {/* RELATED CASES */}
         {relatedCases.length > 0 && (
           <section id="related" className="article-section">
