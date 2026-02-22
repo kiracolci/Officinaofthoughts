@@ -198,3 +198,29 @@ font-style: italic;
   background: #ffbe55;
   transform: translateY(-2px);
 }
+
+.app-logo-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.app-logo-img {
+  height: 37px; /* adjust if needed */
+  width: auto;
+  object-fit: contain;
+  transition: 0.2s ease;
+}
+
+.app-logo-img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .app-logo-img {
+    height: 36px;
+  }
+}

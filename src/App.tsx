@@ -82,10 +82,13 @@ export default function App() {
         <div className="header-content">
           <div className="header-inner">
             {/* Logo / Title */}
-            <button onClick={navigateToHome} className="app-title">
-              <span className="title-officina">Officina</span>{" "}
-              <span className="title-thoughts">of Thoughts</span>
-            </button>
+            <button onClick={navigateToHome} className="app-logo-button">
+  <img
+    src="/cir.png"
+    alt="Officina of Thoughts"
+    className="app-logo-img"
+  />
+</button>
 
             {/* Navigation */}
             <nav className="nav-menu">

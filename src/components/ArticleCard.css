@@ -3,6 +3,7 @@
 .articlecard {
   position: relative;
   display: flex;
+  height: 100%;
   flex-direction: column;
   background: #232731;
   border: 1px solid #2b2f37;
@@ -10,8 +11,26 @@
   padding: 22px;
   cursor: pointer;
   transition: 0.25s ease;
-  height: 260px;
+  min-height: 260px;  
   overflow: hidden;
+}
+
+/* This wraps title, author, tags */
+.article-card-content {
+  flex-grow: 1;
+}
+
+/* Footer row (date + read more) */
+.article-card-footer {
+  margin-top: auto;
+}
+
+/* Make content area grow */
+.articlecard-title,
+.articlecard-author,
+.articlecard-excerpt,
+.articlecard-keywords {
+  flex-shrink: 0;
 }
 
 /* LEFT ORANGE ACCENT */
@@ -39,6 +58,10 @@
   color: #f0f0f0;
   font-weight: 600;
   margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* EXCERPT — expands on hover */
@@ -104,6 +127,8 @@
   transition: 0.2s ease;
 }
 
+
+
 .articlecard-more:hover {
   opacity: 0.7;
   transform: translateX(3px);
@@ -127,4 +152,44 @@
   color: #b9bcc2;
   font-size: 14px;
   opacity: 0.9;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+
+  /* Smaller title */
+  .articlecard-title {
+    font-size: 17px;
+    line-height: 1.3;
+  }
+
+  /* Slightly smaller author */
+  .articlecard-author {
+    font-size: 13px;
+  }
+
+  /* Reduce padding inside card */
+  .articlecard {
+    padding: 18px;
+  }
+
+  /* Footer layout adjustment */
+  .articlecard-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Date row stays compact */
+  .articlecard-date-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Read more fits nicely */
+  .articlecard-more {
+    align-self: flex-end;
+    font-size: 13px;
+  }
+
 }
