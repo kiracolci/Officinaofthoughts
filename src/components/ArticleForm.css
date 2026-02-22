@@ -266,20 +266,28 @@ label {
 }
 
 /* ACTUAL TEXT AREA */
+/* list */
+
 .ProseMirror h1 {
-  font-size: 2rem;
-  font-weight: bold;
+  margin-left: 20px;
+
 }
 
+/* titles big */
 .ProseMirror h2 {
   font-size: 1.6rem;
   font-weight: bold;
+  color: #ffae16;
+  margin-left: 15px;
 }
+
+/* footnotes*/
 
 .ProseMirror h3 {
   font-size: 0.8rem;
   font-weight: bold;
 }
+
 
 /* BUTTON STYLE */
 .editor-toolbar button {

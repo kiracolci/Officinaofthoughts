@@ -65,9 +65,10 @@
 }
 
 .keyword-tag {
-  background: #24315a;
+  background: #ffae16;
+  color: #171a22;
   padding: 6px 12px;
-  border-radius: 6px;
+  border-radius: 50px;
   font-weight: 600;
 }
 
@@ -120,15 +121,21 @@
 }
 
 /* MAIN ARTICLE CONTENT */
+/* list */
 .section-text h1 {
-  font-size: 2rem;
-  font-weight: bold;
+  margin-left: 20px;
 }
 
-.section-text h2 {
+/* titles big */
+
+.section-text h2 { 
   font-size: 1.6rem;
   font-weight: bold;
+  color: #ffae16;
+  margin-left: 15px;
 }
+
+/* footnotes*/
 
 .section-text h3 {
   font-size: 0.8rem;
