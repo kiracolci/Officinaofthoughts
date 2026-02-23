@@ -242,19 +242,28 @@
   color: #ffcc33 !important;
 }
 
-.app-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+/* ================= HERO LOGO ================= */
+
+.hero-section {
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 40px;
 }
 
-.app-title-logo {
-  height: 38px; /* adjust if needed */
+.hero-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.hero-logo {
+  height: 90px; /* adjust if needed */
   width: auto;
   object-fit: contain;
-  transition: 0.2s ease;
+  opacity: 0.95;
+  transition: 0.25s ease;
 }
 
-.app-title-logo:hover {
+.hero-logo:hover {
   transform: scale(1.05);
 }

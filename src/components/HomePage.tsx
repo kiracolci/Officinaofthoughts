@@ -61,20 +61,26 @@ export function HomePage({
 
       {/* HERO */}
       <div className="hero-section">
-        <img
-    src="/circ1.png"
-    alt="Logo"
-    className="app-title-logo"
-  />
-        <h1 className="hero-title">
-          <span className="title-officina">Officina</span>{" "}
-          <span className="title-thoughts">of Thoughts</span>
-        </h1>
-        <p className="hero-description">
-        A curated collection of case law summaries, 
-        commentary and research projects, offering structured and insightful engagement with EU jurisprudence.
-        </p>
-      </div>
+
+  <div className="hero-logo-wrapper">
+    <img
+      src="/cir1.png"
+      alt="Officina Logo"
+      className="hero-logo"
+    />
+  </div>
+
+  <h1 className="hero-title">
+    <span className="title-officina">Officina</span>{" "}
+    <span className="title-thoughts">of Thoughts</span>
+  </h1>
+
+  <p className="hero-description">
+    A curated collection of case law summaries,
+    commentary and research projects, offering structured and insightful engagement with EU jurisprudence.
+  </p>
+
+</div>
 
       {/* SEARCH + FILTER ROW */}
       <div className="search-section">
