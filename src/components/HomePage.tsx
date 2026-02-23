@@ -54,6 +54,27 @@ export function HomePage({
   
     return list;
   }
+
+  function sortArticles(list: any[] | undefined) {
+    if (!list) return [];
+  
+    if (sortBy === "newest")
+      return [...list].sort(
+        (a, b) => b.publishedAt - a.publishedAt
+      );
+  
+    if (sortBy === "oldest")
+      return [...list].sort(
+        (a, b) => a.publishedAt - b.publishedAt
+      );
+  
+    if (sortBy === "az")
+      return [...list].sort((a, b) =>
+        a.title.localeCompare(b.title)
+      );
+  
+    return list;
+  }
   
 
   return (
@@ -175,8 +196,12 @@ export function HomePage({
             displayArticles.length === 0 ? (
               <div className="empty-state">No thoughts found.</div>
             ) : (
-              displayArticles.map((a) => (
-                <ArticleCard key={a._id} article={a} onClick={() => onNavigateToArticle(a._id)} />
+              sortArticles(displayArticles).map((a) => (
+                <ArticleCard
+                  key={a._id}
+                  article={a}
+                  onClick={() => onNavigateToArticle(a._id)}
+                />
               ))
             )
           ) : (
