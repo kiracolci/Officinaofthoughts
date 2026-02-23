@@ -241,3 +241,20 @@
   border-bottom-color: #ffc25a !important; 
   color: #ffcc33 !important;
 }
+
+.app-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-title-logo {
+  height: 38px; /* adjust if needed */
+  width: auto;
+  object-fit: contain;
+  transition: 0.2s ease;
+}
+
+.app-title-logo:hover {
+  transform: scale(1.05);
+}

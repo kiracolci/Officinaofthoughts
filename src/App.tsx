@@ -84,7 +84,7 @@ export default function App() {
             {/* Logo / Title */}
             <button onClick={navigateToHome} className="app-logo-button">
   <img
-    src="/cir.png"
+    src="/cir1.png"
     alt="Officina of Thoughts"
     className="app-logo-img"
   />
