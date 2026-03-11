@@ -10,6 +10,7 @@ import { AdminLogin } from "./components/AdminLogin";
 
 import "./App.css";
 
+
 export default function App() {
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
@@ -180,8 +181,8 @@ export default function App() {
       </main>
 
       <Toaster />
-    </div>
-  );
+</div>
+);
 }
 
 /* ---------------- WRAPPERS ---------------- */
